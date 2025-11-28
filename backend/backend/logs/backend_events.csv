@@ -1,0 +1,4 @@
+time,device_id,imsi,iccid,carrier,baseline_imsi,baseline_iccid,baseline_carrier,risk,action,flags
+2025-11-25T23:55:17.812681,devA,111,AAA,Jio,111,AAA,Jio,0,monitor,
+2025-11-25T23:55:19.256235,devA,111,AAA,Jio,111,AAA,Jio,0,monitor,
+2025-11-25T23:58:34.013103,devA,333,BBB,Jio,111,AAA,Jio,80,require_step_up,"IMSI_CHANGE,ICCID_CHANGE"

@@ -1,0 +1,9 @@
+{
+  "user_id": "user01",
+  "event_type": "login",
+  "phone_number": "+15550000001",
+  "imsi": "111",
+  "iccid": "abc",
+  "baseline_imsi": "111",
+  "baseline_iccid": "abc"
+}
