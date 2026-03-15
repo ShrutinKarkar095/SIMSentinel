@@ -20,6 +20,7 @@ STATIC_DIR = BASE_DIR / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 PREVIEW_HTML = STATIC_DIR / "preview.html"
 DEMO_HTML = STATIC_DIR / "demo.html"
+LOGIN_HTML = STATIC_DIR / "login.html"
 
 CSV_PATH = LOG_DIR / os.getenv("CSV_FILENAME", "backend_events.csv")
 BASELINE_JSONL = LOG_DIR / "baselines.jsonl"
@@ -610,6 +611,11 @@ def preview() -> FileResponse:
 @app.get("/demo", include_in_schema=False)
 def demo() -> FileResponse:
     return FileResponse(DEMO_HTML)
+
+
+@app.get("/login", include_in_schema=False)
+def login_page() -> FileResponse:
+    return FileResponse(LOGIN_HTML)
 
 
 @app.get("/health")

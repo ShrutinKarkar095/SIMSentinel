@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMSentinel Login</title>
+  <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+  <div class="scene">
+    <div class="flare flare-a"></div>
+    <div class="flare flare-b"></div>
+    <div class="mesh"></div>
+  </div>
+
+  <main class="login-shell">
+    <a class="back-link" href="/preview">Back To Preview</a>
+
+    <section class="login-card">
+      <div class="login-copy">
+        <p class="eyebrow">Protected sign in</p>
+        <h1>Login to the live secure experience.</h1>
+        <p class="lead">
+          This page shows how your app can start with a polished customer login, then move into
+          a protected flow with SIMSentinel checking device and telecom trust in the background.
+        </p>
+
+        <div class="trust-strip">
+          <span>Device trust</span>
+          <span>eSIM status</span>
+          <span>Location checks</span>
+        </div>
+
+        <div class="side-panel">
+          <div>
+            <span>Next page</span>
+            <strong id="next-page-label">Live Demo</strong>
+          </div>
+          <div>
+            <span>Flow</span>
+            <strong>Login protection</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-form-card">
+        <div class="mini-phone">
+          <div class="mini-notch"></div>
+          <div class="mini-screen">
+            <p class="eyebrow">Customer app</p>
+            <h2>Welcome back</h2>
+            <p class="mini-copy">Sign in to continue to the protected dashboard.</p>
+
+            <form id="login-form" class="login-form">
+              <label>
+                <span>Email or phone</span>
+                <input id="identity-input" type="text" name="identity" placeholder="name@example.com" required>
+              </label>
+
+              <label>
+                <span>Password</span>
+                <input type="password" name="password" placeholder="Enter password" required>
+              </label>
+
+              <label class="checkbox-row">
+                <input type="checkbox" checked>
+                <span>Remember this trusted device</span>
+              </label>
+
+              <button id="login-submit" class="primary-button" type="submit">Sign In Securely</button>
+            </form>
+
+            <div class="status-card" id="login-status-card">
+              <span>Status</span>
+              <strong id="login-status">Ready to sign in</strong>
+              <p id="login-status-copy">When you click Sign In, you will be redirected to the next protected page.</p>
+            </div>
+
+            <div class="form-links">
+              <a href="/demo">Go To Live Demo</a>
+              <a href="/preview">Back To Preview</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/login.js" defer></script>
+</body>
+</html>

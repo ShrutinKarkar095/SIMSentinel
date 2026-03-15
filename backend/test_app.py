@@ -57,6 +57,12 @@ class SIMSentinelApiTests(unittest.TestCase):
         self.assertIsInstance(response, FileResponse)
         self.assertTrue(str(response.path).endswith("demo.html"))
 
+    def test_login_route_returns_html_file(self):
+        response = app_module.login_page()
+
+        self.assertIsInstance(response, FileResponse)
+        self.assertTrue(str(response.path).endswith("login.html"))
+
     def test_enroll_and_assess_low_risk_session(self):
         enroll_response = app_module.enroll(
             {
