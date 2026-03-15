@@ -31,6 +31,30 @@ body {
   overflow-x: hidden;
 }
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -14%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.38;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 22% 24%, var(--accent-soft), transparent 22%),
+    radial-gradient(circle at 76% 28%, rgba(255, 255, 255, 0.06), transparent 20%);
+  animation: auroraSweep 18s ease-in-out infinite;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 54% 76%, rgba(255, 186, 111, 0.12), transparent 18%),
+    radial-gradient(circle at 84% 72%, rgba(86, 239, 200, 0.08), transparent 16%);
+  animation: auroraSweep 24s ease-in-out infinite reverse;
+}
+
 body.theme-wallet {
   --accent: var(--danger);
   --accent-soft: rgba(255, 95, 116, 0.18);
@@ -109,6 +133,15 @@ body.theme-phone {
   padding: 28px 0 44px;
 }
 
+.demo-shell::before {
+  content: "";
+  position: absolute;
+  inset: 86px 5% auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  pointer-events: none;
+}
+
 .demo-topbar,
 .demo-hero,
 .demo-toolbar,
@@ -145,6 +178,26 @@ body.theme-phone {
   color: var(--accent-strong);
   font-weight: 800;
   letter-spacing: 0.08em;
+  position: relative;
+  overflow: hidden;
+  animation: brandFloat 5.4s ease-in-out infinite;
+}
+
+.brand-mark::after,
+.ghost-link::before,
+.primary-action::before,
+.ghost-action::before,
+.scenario-tab::before,
+.attack-trigger::before,
+.screen-action::before {
+  content: "";
+  position: absolute;
+  inset: -130% auto auto -30%;
+  width: 38%;
+  height: 300%;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  transform: rotate(24deg);
+  animation: sheen 6s linear infinite;
 }
 
 .eyebrow {
@@ -192,6 +245,9 @@ body.theme-phone {
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
   cursor: pointer;
   font: inherit;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .ghost-link:hover,
@@ -222,12 +278,22 @@ body.theme-phone {
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.hero-status-card:hover,
+.demo-card:hover,
+.incident-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
 }
 
 .hero-status-card {
   padding: 22px;
   justify-self: end;
   width: min(100%, 320px);
+  animation: floatCard 6.8s ease-in-out infinite;
 }
 
 .hero-status-card span,
@@ -372,6 +438,9 @@ body.theme-phone {
   cursor: pointer;
   font: inherit;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .attack-trigger:hover,
@@ -532,6 +601,7 @@ body.theme-phone {
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
     rgba(4, 12, 18, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: floatCard 7.8s ease-in-out infinite;
 }
 
 .device-notch {
@@ -650,6 +720,9 @@ body.theme-phone {
   cursor: pointer;
   font: inherit;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .screen-action.primary {
@@ -915,6 +988,28 @@ body.theme-phone {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes auroraSweep {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(2%, -2%, 0) scale(1.03); }
+  66% { transform: translate3d(-2%, 2%, 0) scale(0.98); }
+}
+
+@keyframes sheen {
+  0% { transform: translate3d(-180%, 0, 0) rotate(24deg); opacity: 0; }
+  14% { opacity: 0.46; }
+  30%, 100% { transform: translate3d(280%, 0, 0) rotate(24deg); opacity: 0; }
+}
+
+@keyframes brandFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 @media (max-width: 1120px) {

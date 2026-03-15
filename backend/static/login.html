@@ -3,86 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIMSentinel Login</title>
+  <title>SIMSentinel Secure Login</title>
   <link rel="stylesheet" href="/static/login.css">
 </head>
 <body>
-  <div class="scene">
-    <div class="flare flare-a"></div>
-    <div class="flare flare-b"></div>
-    <div class="mesh"></div>
+  <div class="scene" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="halo halo-a"></div>
+    <div class="halo halo-b"></div>
+    <div class="halo halo-c"></div>
+    <div class="trail trail-a"></div>
+    <div class="trail trail-b"></div>
   </div>
 
   <main class="login-shell">
-    <a class="back-link" href="/preview">Back To Preview</a>
+    <header class="topbar">
+      <a class="brand" href="/preview">
+        <span class="brand-mark">SS</span>
+        <span class="brand-copy">
+          <strong>SIMSentinel</strong>
+          <small>Secure identity handoff</small>
+        </span>
+      </a>
 
-    <section class="login-card">
-      <div class="login-copy">
-        <p class="eyebrow">Protected sign in</p>
-        <h1>Login to the live secure experience.</h1>
+      <nav class="top-nav" aria-label="Site navigation">
+        <a href="/preview">Preview</a>
+        <a href="/demo">Live Demo</a>
+        <a href="/docs">API Docs</a>
+      </nav>
+    </header>
+
+    <section class="login-stage">
+      <section class="story-panel">
+        <p class="eyebrow">Premium customer entry</p>
+        <h1>Make the first screen beautiful while the protection stays aggressive.</h1>
         <p class="lead">
-          This page shows how your app can start with a polished customer login, then move into
-          a protected flow with SIMSentinel checking device and telecom trust in the background.
+          This login experience is designed to feel calm, premium, and trustworthy while
+          SIMSentinel quietly checks eSIM changes, device posture, wallet abuse signals,
+          and recovery risk before a session continues.
         </p>
 
-        <div class="trust-strip">
-          <span>Device trust</span>
-          <span>eSIM status</span>
-          <span>Location checks</span>
+        <div class="hero-actions">
+          <a class="hero-button primary" href="/demo">Open Live Attack Demo</a>
+          <a class="hero-button ghost" href="/preview">Back To Preview</a>
         </div>
 
-        <div class="side-panel">
-          <div>
-            <span>Next page</span>
-            <strong id="next-page-label">Live Demo</strong>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span>Attack surface</span>
+            <strong>eSIM swap and clone protection</strong>
+            <p>Profile changes, carrier anomalies, and sudden recovery attempts are checked in real time.</p>
+          </article>
+          <article class="feature-card">
+            <span>Wallet safety</span>
+            <strong>Transaction-aware trust scoring</strong>
+            <p>High-risk pay, transfer, and payout flows move into challenge, hold, or block automatically.</p>
+          </article>
+          <article class="feature-card">
+            <span>Customer feel</span>
+            <strong>Elegant handoff into the product</strong>
+            <p>The user gets a polished app experience instead of a harsh fraud screen the moment they sign in.</p>
+          </article>
+          <article class="feature-card">
+            <span>Security ops</span>
+            <strong>Queue-ready backend actions</strong>
+            <p>Every decision is mapped to backend actions so your app knows how to respond instantly.</p>
+          </article>
+        </div>
+
+        <div class="intel-strip">
+          <div class="intel-card">
+            <span>Signals armed</span>
+            <strong>IMSI drift, device posture, OTP reset pressure</strong>
           </div>
-          <div>
-            <span>Flow</span>
-            <strong>Login protection</strong>
+          <div class="intel-card">
+            <span>Best fit</span>
+            <strong>Banking, wallet, telecom, recovery, admin access</strong>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="login-form-card">
-        <div class="mini-phone">
-          <div class="mini-notch"></div>
-          <div class="mini-screen">
-            <p class="eyebrow">Customer app</p>
-            <h2>Welcome back</h2>
-            <p class="mini-copy">Sign in to continue to the protected dashboard.</p>
+      <section class="login-panel">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
 
-            <form id="login-form" class="login-form">
+        <article class="floating-card floating-card-a">
+          <span>Live signal</span>
+          <strong>Device trust syncing</strong>
+          <p>Carrier, device, and flow protection are prepared before redirect.</p>
+        </article>
+
+        <article class="floating-card floating-card-b">
+          <span>Handoff target</span>
+          <strong id="next-page-label">Live Demo</strong>
+          <p>After sign in, the protected experience opens automatically.</p>
+        </article>
+
+        <div class="login-phone">
+          <div class="phone-topbar">
+            <span>Protected session</span>
+            <strong>09:41</strong>
+          </div>
+
+          <div class="login-phone-screen">
+            <div class="screen-copy">
+              <p class="eyebrow">Secure access</p>
+              <h2>Sign in with identity confidence already switched on.</h2>
+              <p class="mini-copy">
+                The UI stays calm for the customer while the backend prepares the
+                device, eSIM, wallet, and recovery checks behind the scenes.
+              </p>
+            </div>
+
+            <div class="trust-badges">
+              <span>eSIM watch</span>
+              <span>Wallet guard</span>
+              <span>Recovery lock</span>
+            </div>
+
+            <div class="stage-track" aria-label="Protection stages">
+              <div class="stage-pill active" data-stage-pill>Identity</div>
+              <div class="stage-pill" data-stage-pill>Device trust</div>
+              <div class="stage-pill" data-stage-pill>Protected handoff</div>
+            </div>
+
+            <form class="login-form" id="login-form">
               <label>
-                <span>Email or phone</span>
-                <input id="identity-input" type="text" name="identity" placeholder="name@example.com" required>
+                <span>Phone number or email</span>
+                <input id="identity-input" type="text" name="identity" autocomplete="username" placeholder="+1 555 024 9420 or name@company.com">
               </label>
 
               <label>
                 <span>Password</span>
-                <input type="password" name="password" placeholder="Enter password" required>
+                <input type="password" name="password" autocomplete="current-password" placeholder="Enter your password">
               </label>
 
               <label class="checkbox-row">
-                <input type="checkbox" checked>
-                <span>Remember this trusted device</span>
+                <input type="checkbox" name="trusted_device" checked>
+                <span>Remember this protected device for lower-friction login</span>
               </label>
 
-              <button id="login-submit" class="primary-button" type="submit">Sign In Securely</button>
+              <button class="primary-button" id="login-submit" type="submit">Sign In Securely</button>
             </form>
 
-            <div class="status-card" id="login-status-card">
-              <span>Status</span>
-              <strong id="login-status">Ready to sign in</strong>
-              <p id="login-status-copy">When you click Sign In, you will be redirected to the next protected page.</p>
-            </div>
+            <article class="status-card" id="login-status-card">
+              <span>Session state</span>
+              <strong id="login-status">Secure handoff ready</strong>
+              <p id="login-status-copy">
+                We will verify the device, watch for SIM or eSIM risk, and then open the protected experience.
+              </p>
+            </article>
 
-            <div class="form-links">
-              <a href="/demo">Go To Live Demo</a>
-              <a href="/preview">Back To Preview</a>
+            <div class="live-strip">
+              <div>
+                <span>Decision mode</span>
+                <strong>Adaptive</strong>
+              </div>
+              <div>
+                <span>Recent checks</span>
+                <strong>Carrier and device</strong>
+              </div>
+              <div>
+                <span>Response path</span>
+                <strong>Allow, challenge, hold, block</strong>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </section>
   </main>
 
