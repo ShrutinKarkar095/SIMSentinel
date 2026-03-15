@@ -1,0 +1,8 @@
+services:
+  - name: simsentinel
+    type: web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health

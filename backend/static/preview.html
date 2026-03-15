@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMSentinel Preview</title>
+  <link rel="stylesheet" href="/static/preview.css">
+</head>
+<body>
+  <div class="scene">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="grid"></div>
+  </div>
+
+  <main class="shell">
+    <header class="topbar reveal">
+      <div class="brand">
+        <span class="brand-mark">SS</span>
+        <div>
+          <p class="eyebrow">Telecom threat intelligence</p>
+          <h1>SIMSentinel Control Surface</h1>
+        </div>
+      </div>
+
+      <nav class="top-nav" aria-label="Preview navigation">
+        <a href="#overview">Overview</a>
+        <a href="#experience">Experience</a>
+        <a href="/demo">Live Demo</a>
+        <a href="#walkthrough">Walkthrough</a>
+        <a href="#journey">How It Works</a>
+        <a href="#simulator">Simulator</a>
+      </nav>
+
+      <a class="ghost-button" href="/docs">Open API Docs</a>
+    </header>
+
+    <section class="hero card reveal" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow">Animated product preview</p>
+        <h2>See how your security app looks, moves, and guides the user.</h2>
+        <p class="lead">
+          This preview now behaves more like a real product. You can switch between mobile app,
+          banking console, and admin dashboard views, then see how login, transfers, OTP reset,
+          and privileged access are handled by the backend.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-button" id="open-live-demo" href="/demo">Open Live Attack Demo</a>
+          <a class="ghost-button" href="#experience">See App Screens</a>
+        </div>
+        <div class="signal-strip">
+          <span>IMSI drift</span>
+          <span>eSIM profile swaps</span>
+          <span>port-out pressure</span>
+          <span>device integrity</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="radar-card">
+          <div class="radar">
+            <span class="ring ring-1"></span>
+            <span class="ring ring-2"></span>
+            <span class="ring ring-3"></span>
+            <span class="beam"></span>
+            <span class="signal signal-a"></span>
+            <span class="signal signal-b"></span>
+            <span class="signal signal-c"></span>
+            <div class="core">Guard</div>
+          </div>
+          <div class="visual-metrics">
+            <div>
+              <span>Live decision</span>
+              <strong id="hero-decision">BLOCK</strong>
+            </div>
+            <div>
+              <span>Queue</span>
+              <strong id="hero-queue">payments-risk</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats reveal">
+      <article class="card stat-card">
+        <span>Total Events</span>
+        <strong id="stat-events">0</strong>
+        <small>Telemetry and assess calls</small>
+      </article>
+      <article class="card stat-card">
+        <span>Medium Risk</span>
+        <strong id="stat-medium">0</strong>
+        <small>Challenge-level sessions</small>
+      </article>
+      <article class="card stat-card">
+        <span>High Risk</span>
+        <strong id="stat-high">0</strong>
+        <small>Hold and review candidates</small>
+      </article>
+      <article class="card stat-card">
+        <span>Critical Alerts</span>
+        <strong id="stat-critical">0</strong>
+        <small>Blocks and security escalation</small>
+      </article>
+    </section>
+
+    <section class="experience-grid reveal" id="experience">
+      <section class="card experience-panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Product views</p>
+            <h3>How your app can look</h3>
+          </div>
+          <div class="mode-switch" role="tablist" aria-label="Experience modes">
+            <button class="mode-button active" type="button" data-mode="mobile">Mobile App</button>
+            <button class="mode-button" type="button" data-mode="banking">Banking Console</button>
+            <button class="mode-button" type="button" data-mode="admin">Admin Dashboard</button>
+          </div>
+        </div>
+
+        <div class="experience-layout">
+          <div class="device-stage">
+            <div class="phone-frame" id="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="screen-topbar">
+                  <span id="screen-time">09:41</span>
+                  <span id="screen-status">Protected</span>
+                </div>
+                <div class="screen-header">
+                  <p class="eyebrow" id="screen-kicker">Mobile journey</p>
+                  <h4 id="screen-title">Secure account overview</h4>
+                  <p id="screen-subtitle">Monitor your device trust, recent SIM activity, and approval status.</p>
+                </div>
+                <div class="screen-risk-banner">
+                  <div>
+                    <span>Trust state</span>
+                    <strong id="screen-state">Stable</strong>
+                  </div>
+                  <div>
+                    <span>Next action</span>
+                    <strong id="screen-state-action">No action needed</strong>
+                  </div>
+                </div>
+                <div class="screen-cards" id="screen-cards"></div>
+                <div class="screen-cta" id="screen-cta">Open protection center</div>
+                <div class="screen-nav" id="screen-nav"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-copy">
+            <div class="story-block">
+              <p class="eyebrow">Current view</p>
+              <h4 id="story-title">Mobile-first trust center</h4>
+              <p id="story-body">
+                This version feels like a consumer app. A user lands on a clear status summary, then taps
+                into alerts, approvals, and recovery controls.
+              </p>
+            </div>
+
+            <div class="story-checklist">
+              <div>
+                <span>Navigation</span>
+                <strong id="story-navigation">Bottom tabs with a primary safety center.</strong>
+              </div>
+              <div>
+                <span>Best for</span>
+                <strong id="story-best-for">Wallets, banking apps, and telecom self-care apps.</strong>
+              </div>
+              <div>
+                <span>Main user action</span>
+                <strong id="story-primary-action">Review alerts and approve only after strong verification.</strong>
+              </div>
+            </div>
+
+            <div class="story-steps">
+              <p class="eyebrow">What the user does</p>
+              <ol id="story-steps"></ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="content-grid">
+      <section class="card reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Protected flows</p>
+            <h3>Built-in playbooks</h3>
+          </div>
+          <span class="pill">Auto-loaded from API</span>
+        </div>
+        <div class="flow-grid" id="flow-grid"></div>
+      </section>
+
+      <section class="card reveal" id="journey">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">How to navigate</p>
+            <h3>How the app works</h3>
+          </div>
+          <span class="pill warm">Guided journey</span>
+        </div>
+        <div class="journey-list">
+          <article class="journey-step active">
+            <span class="journey-index">01</span>
+            <div>
+              <h4>Land on the main dashboard</h4>
+              <p>Start on the overview screen to see trust state, recent SIM activity, and pending actions.</p>
+            </div>
+          </article>
+          <article class="journey-step">
+            <span class="journey-index">02</span>
+            <div>
+              <h4>Open alerts or sensitive flow</h4>
+              <p>When a login, transfer, OTP reset, or admin action starts, the app calls `/assess`.</p>
+            </div>
+          </article>
+          <article class="journey-step">
+            <span class="journey-index">03</span>
+            <div>
+              <h4>Read the decision</h4>
+              <p>Use `integration.decision` and `flow_policy.backend_action` to decide what the user can do next.</p>
+            </div>
+          </article>
+          <article class="journey-step">
+            <span class="journey-index">04</span>
+            <div>
+              <h4>Guide the user safely</h4>
+              <p>Show MFA, hold the request, or block the flow while routing the case to the proper queue.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="card reveal walkthrough-panel" id="walkthrough">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Interactive flow demo</p>
+          <h3>Click through the real journey</h3>
+        </div>
+        <span class="pill">Step-by-step preview</span>
+      </div>
+
+      <div class="walkthrough-layout">
+        <div class="walkthrough-menu">
+          <button class="journey-button active" data-flow="login" type="button">
+            <span>Mobile login flow</span>
+            <small>Customer app journey</small>
+          </button>
+          <button class="journey-button" data-flow="wallet" type="button">
+            <span>Wallet transfer flow</span>
+            <small>High-risk payment review</small>
+          </button>
+          <button class="journey-button" data-flow="otp" type="button">
+            <span>OTP recovery flow</span>
+            <small>Recovery and hold logic</small>
+          </button>
+          <button class="journey-button" data-flow="admin" type="button">
+            <span>Admin access flow</span>
+            <small>Privileged access challenge</small>
+          </button>
+        </div>
+
+        <div class="walkthrough-stage">
+          <div class="walkthrough-header">
+            <span class="pill warm" id="walkthrough-pill">Step 1 of 4</span>
+            <strong id="walkthrough-flow-name">Mobile login flow</strong>
+          </div>
+
+          <div class="walkthrough-screen">
+            <div class="walkthrough-screen-top">
+              <div>
+                <p class="eyebrow" id="walkthrough-screen-badge">Login start</p>
+                <h4 id="walkthrough-screen-title">Open the app and begin sign in</h4>
+              </div>
+              <span class="walkthrough-state-chip" id="walkthrough-state-chip">Allow path</span>
+            </div>
+
+            <p class="walkthrough-screen-copy" id="walkthrough-screen-copy">
+              The user starts from the main sign-in screen with clear language and a visible secure state.
+            </p>
+
+            <div class="walkthrough-screen-panels" id="walkthrough-screen-panels"></div>
+
+            <div class="walkthrough-actions">
+              <button class="ghost-button walkthrough-nav-button" id="walkthrough-prev" type="button">Previous</button>
+              <button class="primary-button walkthrough-nav-button" id="walkthrough-next" type="button">Next Step</button>
+            </div>
+          </div>
+
+          <div class="walkthrough-progress" id="walkthrough-progress"></div>
+        </div>
+
+        <div class="walkthrough-sidebar">
+          <article class="sidebar-block">
+            <p class="eyebrow">What the user sees</p>
+            <h4 id="walkthrough-user-title">Clear sign-in entry</h4>
+            <p id="walkthrough-user-copy">The user sees a normal login experience, not a confusing fraud workflow.</p>
+          </article>
+          <article class="sidebar-block">
+            <p class="eyebrow">What the system does</p>
+            <h4 id="walkthrough-system-title">Collect device and SIM signals</h4>
+            <p id="walkthrough-system-copy">The app gathers device, SIM, carrier, and location data before final session approval.</p>
+          </article>
+          <article class="sidebar-block">
+            <p class="eyebrow">Navigation tip</p>
+            <p id="walkthrough-navigation-tip">Use the left flow list to switch journeys, then use Previous and Next to move through each screen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="card reveal" id="simulator">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Live simulator</p>
+          <h3>Preview behavior in real time</h3>
+        </div>
+        <span class="pill danger" id="sim-status">Ready</span>
+      </div>
+
+      <div class="simulator-layout">
+        <div class="scenario-list">
+          <button class="scenario-button active" data-scenario="wallet" type="button">
+            <span>Wallet attack</span>
+            <small>Critical block with wallet freeze</small>
+          </button>
+          <button class="scenario-button" data-scenario="login" type="button">
+            <span>Clean login</span>
+            <small>Low-risk allow</small>
+          </button>
+          <button class="scenario-button" data-scenario="otp" type="button">
+            <span>OTP reset threat</span>
+            <small>Recovery hold flow</small>
+          </button>
+          <button class="scenario-button" data-scenario="admin" type="button">
+            <span>Admin challenge</span>
+            <small>Phishing-resistant MFA</small>
+          </button>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-topline">
+            <div>
+              <p class="eyebrow">Current decision</p>
+              <h4 id="result-title">Wallet attack simulation</h4>
+            </div>
+            <div class="decision-chip" id="decision-chip">BLOCK</div>
+          </div>
+
+          <div class="risk-meter">
+            <div class="risk-meter-bar" id="risk-meter-bar"></div>
+          </div>
+          <div class="result-metrics">
+            <article>
+              <span>Risk score</span>
+              <strong id="result-risk">0</strong>
+            </article>
+            <article>
+              <span>Severity</span>
+              <strong id="result-severity">low</strong>
+            </article>
+            <article>
+              <span>Backend action</span>
+              <strong id="result-action">allow_request</strong>
+            </article>
+          </div>
+
+          <div class="result-columns">
+            <div>
+              <p class="eyebrow">Required checks</p>
+              <ul id="required-checks"></ul>
+            </div>
+            <div>
+              <p class="eyebrow">Blocked actions</p>
+              <ul id="blocked-actions"></ul>
+            </div>
+            <div>
+              <p class="eyebrow">Flags</p>
+              <ul id="flag-list"></ul>
+            </div>
+          </div>
+
+          <div class="result-console">
+            <p class="eyebrow">Console output</p>
+            <pre id="result-console">{}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-note reveal">
+      <p>
+        Preview route: <code>/preview</code>
+        <span class="dot"></span>
+        Simulation API: <code>/assess</code>
+        <span class="dot"></span>
+        Flow library: <code>/integrations/flow-policies</code>
+      </p>
+    </section>
+  </main>
+
+  <script src="/static/preview.js" defer></script>
+</body>
+</html>

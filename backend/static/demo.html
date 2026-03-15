@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMSentinel Live Demo</title>
+  <link rel="stylesheet" href="/static/demo.css">
+</head>
+<body class="theme-wallet">
+  <div class="demo-scene">
+    <div class="demo-grid"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="glow glow-c"></div>
+  </div>
+
+  <main class="demo-shell">
+    <header class="demo-topbar">
+      <div class="demo-brand">
+        <span class="brand-mark">SS</span>
+        <div>
+          <p class="eyebrow">Live protection simulation</p>
+          <h1>SIMSentinel Attack Theater</h1>
+        </div>
+      </div>
+      <div class="demo-links">
+        <a class="ghost-link" href="/preview">Back To Preview</a>
+        <a class="ghost-link" href="/docs">API Docs</a>
+      </div>
+    </header>
+
+    <section class="demo-hero">
+      <div>
+        <p class="eyebrow">Working app demonstration</p>
+        <h2>Click the user flow, launch the attack, and watch the app protect the account live.</h2>
+        <p class="hero-copy">
+          This page stays idle until someone clicks a real action. The wallet, eSIM, and phone journeys
+          call the live backend and then update the app screen with the protection response.
+        </p>
+      </div>
+      <div class="hero-status-card">
+        <span>Current verdict</span>
+        <strong id="hero-verdict">READY</strong>
+        <small id="hero-queue">payments-risk</small>
+      </div>
+    </section>
+
+    <section class="demo-toolbar">
+      <div class="scenario-tabs" role="tablist" aria-label="Attack demos">
+        <button class="scenario-tab active" data-scenario="wallet" type="button">Wallet Heist</button>
+        <button class="scenario-tab" data-scenario="esim" type="button">eSIM Clone</button>
+        <button class="scenario-tab" data-scenario="phone" type="button">Phone Takeover</button>
+      </div>
+      <div class="toolbar-actions">
+        <span class="status-pill ready" id="demo-status">Click the user or attack button</span>
+      </div>
+    </section>
+
+    <section class="demo-layout">
+      <aside class="demo-card attack-console">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Attacker view</p>
+            <h3 id="attack-title">Wallet Heist</h3>
+          </div>
+          <span class="console-dot"></span>
+        </div>
+        <div class="attack-actions">
+          <button class="attack-trigger safe" id="safe-action-button" type="button">User clicks Buy Now</button>
+          <button class="attack-trigger danger" id="attack-action-button" type="button">Launch Wallet Attack</button>
+          <button class="ghost-action" id="reset-demo" type="button">Reset Demo</button>
+        </div>
+        <p class="attack-helper" id="attack-helper">
+          Click Buy Now to show a safe payment, then launch the attack to see the live protection response.
+        </p>
+        <div class="attack-screen" id="attack-screen">
+          <div class="attack-feed" id="attack-feed"></div>
+        </div>
+        <div class="phase-track" id="phase-track"></div>
+      </aside>
+
+      <section class="demo-card device-stage">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Victim device</p>
+            <h3 id="device-title">Wallet customer app</h3>
+          </div>
+          <span class="device-status watch" id="device-status">Ready</span>
+        </div>
+
+        <div class="device-network">
+          <span class="beam beam-left"></span>
+          <span class="beam beam-right"></span>
+          <span class="pulse-node pulse-node-a"></span>
+          <span class="pulse-node pulse-node-b"></span>
+          <span class="pulse-node pulse-node-c"></span>
+        </div>
+
+        <div class="device-frame" id="device-frame">
+          <div class="device-notch"></div>
+          <div class="device-screen">
+            <div class="screen-header">
+              <span id="screen-user">Aarav Patel</span>
+              <strong id="screen-balance">INR 84,220</strong>
+            </div>
+            <div class="screen-alert watch" id="screen-alert">
+              <span>Protection active</span>
+              <strong id="screen-alert-title">Wallet protection is ready for the next payment</strong>
+            </div>
+            <div class="screen-main-card">
+              <span id="screen-main-meta">Wallet home</span>
+              <h4 id="screen-main-title">Customer can buy or transfer safely</h4>
+              <p id="screen-main-copy">The app is waiting for a real user action or an attack trigger from the console.</p>
+            </div>
+            <div class="screen-tiles" id="screen-tiles"></div>
+            <div class="screen-action-row">
+              <button class="screen-action primary" id="screen-primary-action" type="button">Buy Now</button>
+            </div>
+            <div class="screen-footer-cta" id="screen-footer-cta">Waiting for user action</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="demo-card defense-console">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Protection engine</p>
+            <h3>SIMSentinel Live Core</h3>
+          </div>
+          <span class="shield-status" id="shield-status">Armed</span>
+        </div>
+
+        <div class="shield-core">
+          <div class="shield-rings">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="shield-badge watch" id="shield-badge">READY</div>
+        </div>
+
+        <div class="defense-metrics">
+          <article>
+            <span>Risk</span>
+            <strong id="risk-score">--</strong>
+          </article>
+          <article>
+            <span>Severity</span>
+            <strong id="risk-severity">waiting</strong>
+          </article>
+          <article>
+            <span>Backend action</span>
+            <strong id="backend-action">waiting_for_click</strong>
+          </article>
+        </div>
+
+        <div class="defense-lists">
+          <div>
+            <p class="eyebrow">Blocked actions</p>
+            <ul id="blocked-list"></ul>
+          </div>
+          <div>
+            <p class="eyebrow">Required checks</p>
+            <ul id="checks-list"></ul>
+          </div>
+          <div>
+            <p class="eyebrow">Detection flags</p>
+            <ul id="flags-list"></ul>
+          </div>
+        </div>
+
+        <div class="backend-live">
+          <p class="eyebrow">Live backend state</p>
+          <div class="backend-live-grid">
+            <article>
+              <span>Events</span>
+              <strong id="backend-events">0</strong>
+            </article>
+            <article>
+              <span>Alerts</span>
+              <strong id="backend-alerts">0</strong>
+            </article>
+          </div>
+          <p class="backend-live-copy" id="backend-last-alert">
+            The backend is ready. Click the user flow or the attack button to create live events.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="demo-card incident-strip">
+      <div class="card-head">
+        <div>
+          <p class="eyebrow">Working app stream</p>
+          <h3>What is happening right now</h3>
+        </div>
+        <span class="status-pill ready" id="incident-live-state">Idle</span>
+      </div>
+
+      <div class="incident-grid">
+        <article class="incident-card">
+          <span>Target</span>
+          <strong id="incident-target">Wallet payout rail</strong>
+          <p id="incident-target-copy">The wallet flow can be approved for a real user or frozen if a SIM or eSIM attack appears.</p>
+        </article>
+        <article class="incident-card">
+          <span>Protection action</span>
+          <strong id="incident-action">Waiting for user action</strong>
+          <p id="incident-action-copy">Nothing happens until someone clicks Buy Now or launches the attacker flow.</p>
+        </article>
+        <article class="incident-card">
+          <span>Queue</span>
+          <strong id="incident-queue">payments-risk</strong>
+          <p id="incident-queue-copy">High-risk transfer cases will be routed to payments-risk.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/demo.js" defer></script>
+</body>
+</html>
